@@ -25,7 +25,6 @@ if !FileExist(flagFile) {
 }
 
 ; Create a GUI window
-Gui, Font, s9, Arial  ; Set font size to 9, font to Arial
 Gui, Add, ListBox, vMyListBox w310 h145, Pressing Numpad0 will send report for "ALL"|Pressing Numpad1 will send report for "Cheating"|Pressing Numpad2 will send report for "Exploiting"|Pressing Numpad3 will send report for "Text Chat-Spam"|Pressing Numpad4 types "Nice Cheats!" in chat|Pressing Numpad5 will send report for "Text Chat-Offensive"|Pressing Numpad6 types "Where did you get them?" in chat|Pressing Numpad7 will send report for "Voice Chat-Offensive"|Pressing Numpad8 will send report for "UserName-Offensive"|Pressing Numpad9 will send report for "ClanTag-Offensive"
 Gui, Add, Button, gCloseGUI x10 y145 w120 h30, Close GUI
 Gui, Add, Button, gCancelScript x200 y145 w120 h30, Cancel Script
