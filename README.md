@@ -1,2 +1,1 @@
-# AHKs
-AHK scripts
+This is just some ahks I have made for use by myself and my friends. I have done some of the coding and ChatGPT has done some of it, You may use these ahk scripts freely and distrubute them as you see fit as long as you dont clame to have made them.
