@@ -26,10 +26,10 @@ if !FileExist(flagFile) {
 }
 
 ; Define the script version
-ScriptVersion := "1.0.0"
+ScriptVersion := "1.0.1"
 
 ; Display the current script version
-MsgBox, This is script version %ScriptVersion%.
+;MsgBox, This is script version %ScriptVersion%.
 
 ; Define the URL where the latest version is hosted
 VersionUrl := "https://github.com/PrisonSnitch/AHKs/blob/main/version.txt"
@@ -68,7 +68,7 @@ if !IsVersionGreaterOrEqual(ScriptVersion, LatestVersion) {
     MsgBox, Error: A newer version (%LatestVersion%) of this script is available. You are using version %ScriptVersion%.
     ExitApp
 } else {
-    MsgBox, You are using the latest script version %ScriptVersion%.
+;    MsgBox, You are using the latest script version %ScriptVersion%.
 }
 
 ; Create a GUI window
@@ -121,4 +121,3 @@ return
 GuiClose:
     Gui, Hide
 return
-
