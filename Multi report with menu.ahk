@@ -1,5 +1,12 @@
 #SingleInstance, Force
-SendMode, Input  ; Recommended for faster and more reliable input
+SendMode, Input
+#Persistent
+
+; Define log file path
+logFile := "C:\Reportlogfile.txt"
+flagFile := "C:\Reportflagfile.txt"
+#SingleInstance, Force
+SendMode, Input
 #Persistent
 
 ; Define log file path
@@ -26,10 +33,7 @@ if !FileExist(flagFile) {
 }
 
 ; Define the script version
-ScriptVersion := "1.0.1"
-
-; Display the current script version
-;MsgBox, This is script version %ScriptVersion%.
+ScriptVersion := "1.0.2"
 
 ; Define the URL where the latest version is hosted
 VersionUrl := "https://github.com/PrisonSnitch/AHKs/blob/main/version.txt"
@@ -46,29 +50,62 @@ FileRead, LatestVersion, %TempVersionFile%
 ; Trim any extra whitespace from the downloaded version
 LatestVersion := Trim(LatestVersion)
 
+; Display the LatestVersion to ensure it's being read correctly
+MsgBox, LatestVersion is %LatestVersion%  ; Debugging step, remove later
+
 ; Function to compare versions
-IsVersionGreaterOrEqual(Version1, Version2) {
-    Loop, Parse, Version1, .
-        Part1%A_Index% := A_LoopField
-    Loop, Parse, Version2, .
-        Part2%A_Index% := A_LoopField
-    
-    Loop, 3
+IsNewerVersion(CurrentVersion, RemoteVersion) {
+    CurrentParts := StrSplit(CurrentVersion, ".")
+    RemoteParts := StrSplit(RemoteVersion, ".")
+
+    Loop, 3  ; Compare up to 3 parts (major, minor, patch)
     {
-        if (Part1%A_Index% > Part2%A_Index%)
+        If (RemoteParts[A_Index] > CurrentParts[A_Index])
             return true
-        if (Part1%A_Index% < Part2%A_Index%)
+        If (RemoteParts[A_Index] < CurrentParts[A_Index])
             return false
     }
-    return true ; Versions are equal
+    return false  ; Return false if the versions are the same or older
 }
 
-; Check if the current script version meets the online version
-if !IsVersionGreaterOrEqual(ScriptVersion, LatestVersion) {
-    MsgBox, Error: A newer version (%LatestVersion%) of this script is available. You are using version %ScriptVersion%.
-    ExitApp
-} else {
-;    MsgBox, You are using the latest script version %ScriptVersion%.
+; Check if the online version is newer
+if IsNewerVersion(ScriptVersion, LatestVersion) {
+    MsgBox, 4, Update Available, A newer version (%LatestVersion%) of this script is available.`n`nDo you want to download and update the script now?
+    IfMsgBox, Yes
+    {
+        ; User selected Yes, proceed with downloading and updating
+        UpdateScript()
+    }
+    else
+    {
+        ; If the user selects No, continue silently
+        return
+    }
+}
+
+; Function to update the script
+UpdateScript() {
+    ; Define the URL for the updated script (replace this with the actual script URL)
+    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/main/Multi%20report%20with%20menu.ahk?token=GHSAT0AAAAAACXRMDWSXGK4R4YVL3I5X3OGZXHO7GQ"
+
+    ; Path to save the downloaded script
+    UpdatedScriptPath := DesktopPath "\MyFile.txt"
+
+    ; Download the updated script
+    URLDownloadToFile, %ScriptDownloadUrl%, %UpdatedScriptPath%
+
+    ; Check if the updated script was downloaded successfully
+    if FileExist(UpdatedScriptPath)
+    {
+        MsgBox, The script was updated successfully.`nRestarting the script...
+        ; Run the new version of the script and exit the current instance
+        Run, %UpdatedScriptPath%
+        ExitApp
+    }
+    else
+    {
+        MsgBox, Error: Failed to download the updated script.
+    }
 }
 
 ; Create a GUI window
@@ -79,23 +116,129 @@ Gui, Show, w330 h200, Report Actions
 
 ; Define Numpad hotkeys
 Numpad1::
-    FileAppend, %A_Now% - Numpad1 pressed.`n, %logFile%
-    SendInput, x
-    Sleep, 200
-    ; Actions...
-return
-
-Numpad0::
     FileAppend, %A_Now% - Numpad0 pressed.`n, %logFile%
     SendInput, x
     Sleep, 200
-    ; Actions...
+    Click, 848, 384
+    Sleep, 200
+    Click, 848, 460
+    Sleep, 200
+    Click, 848, 530
+    Sleep, 200
+    Click, 848, 606
+    Sleep, 200
+    Click, 848, 680
+    Sleep, 200
+    Click, 848, 753
+    Sleep, 200
+    Click, 848, 825
+    Sleep, 200
+    Click, 848, 460
+    Sleep, 200
+    Click, 963, 917
 return
 
-; Additional hotkeys (Numpad2 to Numpad9 and NumpadAdd) follow similar pattern...
+Numpad0::
+    FileAppend, %A_Now% - Numpad1 pressed.`n, %logFile%
+    SendInput, x
+    Sleep, 200
+    Click, 848, 384
+    Sleep, 200
+    Click, 940, 923
+    Click, 963, 917
+return
+
+Numpad2::
+    FileAppend, %A_Now% - Numpad2 pressed.`n, %logFile%
+    SendInput, x
+    Sleep, 200
+    Click, 848, 460
+    Sleep, 200
+    Click, 940, 923
+    Click, 963, 917
+return
+
+Numpad3::
+    FileAppend, %A_Now% - Numpad3 pressed.`n, %logFile%
+    SendInput, x
+    Sleep, 200
+    Click, 848, 530
+    Sleep, 200
+    Click, 940, 923
+    Click, 963, 917
+return
+
+Numpad4::
+    FileAppend, %A_Now% - Numpad4 pressed.`n, %logFile%
+    SendInput, {Enter}
+    Sleep, 200
+    SendInput, Nice Cheats!
+    Sleep, 200
+    Click, 963, 917
+return
+
+Numpad5::
+    FileAppend, %A_Now% - Numpad5 pressed.`n, %logFile%
+    SendInput, x
+    Sleep, 200
+    Click, 848, 606
+    Sleep, 200
+    Click, 940, 923
+    Sleep, 200
+    Click, 963, 917
+return
+
+Numpad6::
+    FileAppend, %A_Now% - Numpad6 pressed.`n, %logFile%
+    SendInput, {Enter}
+    Sleep, 200
+    SendInput, Reported!
+    Sleep, 200
+    Click, 963, 917
+return
+
+Numpad7::
+    FileAppend, %A_Now% - Numpad7 pressed.`n, %logFile%
+    SendInput, x
+    Sleep, 200
+    Click, 848, 680
+    Sleep, 200
+    Click, 940, 923
+    Sleep, 200
+    Click, 963, 917
+return
+
+Numpad8::
+    FileAppend, %A_Now% - Numpad8 pressed.`n, %logFile%
+    SendInput, x
+    Sleep, 200
+    Click, 848, 753
+    Sleep, 200
+    Click, 940, 923
+    Sleep, 200
+    Click, 963, 917
+return
+
+Numpad9::
+    FileAppend, %A_Now% - Numpad9 pressed.`n, %logFile%
+    SendInput, x
+    Sleep, 200
+    Click, 848, 825
+    Sleep, 200
+    Click, 940, 923
+    Sleep, 200
+    Click, 963, 917
+return
+
+NumpadAdd::
+     FileAppend, %A_Now% - Bought Someone back.`n, %logFile%
+     Click, 191, 143
+	
+return
 
 ; Define hotkey to open the log file
 ^l:: ; Ctrl + L to open the log file
+    FileAppend, %A_Now% - Logfile accessed.`n, %logFile%
     Run, %logFile%
 return
 
@@ -117,7 +260,6 @@ return
     ExitApp
 return
 
-; This part ensures that the script remains active even after running the GUI code
 GuiClose:
     Gui, Hide
 return
