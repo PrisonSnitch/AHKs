@@ -15,7 +15,7 @@ if !FileExist(logFile) {
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "1.0.0"
+ScriptVersion := "1.0.2"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
 VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/main/version.txt"
