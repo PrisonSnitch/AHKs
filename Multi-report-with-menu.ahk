@@ -17,13 +17,13 @@ FileAppend, %A_Now% - Script started.`n, %logFile%
 ; Define the script version
 ScriptVersion := "1.0.0"
 
-; Define the URL where the latest version is hosted
-VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/version.txt"
+; Define the correct URL where the latest version is hosted (raw GitHub link)
+VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/main/version.txt"
 
 ; Path to temporarily download the version file
 TempVersionFile := A_Temp "\latest_version.txt"
 
-; Download the latest version number from the web
+; Download the latest version number from the web (raw content)
 URLDownloadToFile, %VersionUrl%, %TempVersionFile%
 
 ; Check if the version file was downloaded successfully
@@ -40,7 +40,7 @@ LatestVersion := Trim(LatestVersion)
 
 ; Check if the version format is correct (should be like x.y.z)
 if !RegExMatch(LatestVersion, "^\d+\.\d+\.\d+$") {
-    MsgBox, Error: Invalid version format in the downloaded file.
+    MsgBox, Error: Invalid version format in the downloaded file: %LatestVersion%
     ExitApp
 }
 
@@ -100,7 +100,6 @@ UpdateScript() {
         MsgBox, Error: Failed to download the updated script.
     }
 }
-
 
 ; Create a GUI window
 Gui, Add, ListBox, vMyListBox w310 h155, Pressing Numpad0 will send report for "Cheating"|Pressing Numpad1 will send report for "ALL"|Pressing Numpad2 will send report for "Exploiting"|Pressing Numpad3 will send report for "Text Chat-Spam"|Pressing Numpad4 types "Nice Cheats!" in chat|Pressing Numpad5 will send report for "Text Chat-Offensive"|Pressing Numpad6 types "Reported!" in chat|Pressing Numpad7 will send report for "Voice Chat-Offensive"|Pressing Numpad8 will send report for "UserName-Offensive"|Pressing Numpad9 will send report for "ClanTag-Offensive"|Pressing Numpad+ will buy the first person back on list.
