@@ -4,12 +4,6 @@ SendMode, Input
 
 ; Define log file path
 logFile := "C:\Reportlogfile.txt"
-flagFile := "C:\Reportlogfile.txt"
-
-; Check if the log file exists, if not, initialize it
-if !FileExist(logFile) {
-    FileAppend, %A_Now% - Log file created.`n, %logFile%
-}
 
 ; Initialize log file with script start time
 FileAppend, %A_Now% - Script started.`n, %logFile%
@@ -35,8 +29,9 @@ if !FileExist(TempVersionFile) {
 ; Read the version number from the downloaded file
 FileRead, LatestVersion, %TempVersionFile%
 
-; Trim any extra whitespace or newline characters from the downloaded version
-LatestVersion := Trim(LatestVersion)
+; Trim any extra whitespace, BOM, or newline characters from the downloaded version
+LatestVersion := RegExReplace(LatestVersion, "^\s+|\s+$")  ; Trim leading/trailing spaces
+LatestVersion := StrReplace(LatestVersion, "`r`n", "")  ; Remove any carriage return and newline characters
 
 ; Check if the version format is correct (should be like x.y.z)
 if !RegExMatch(LatestVersion, "^\d+\.\d+\.\d+$") {
