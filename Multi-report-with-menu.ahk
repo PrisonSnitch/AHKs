@@ -14,28 +14,17 @@ if !FileExist(logFile) {
 ; Initialize log file with script start time
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
-; Check if the flag file exists
-if !FileExist(flagFile) {
-    ; Show the initial message box
-    MsgBox, 4,, You can leave the "Next window" open but if you close it, you can press the "ESC" key to close the script. Do you want to continue?
-    IfMsgBox, No
-        ExitApp
-
-    ; Create the flag file to indicate the script has run
-    FileAppend,, %flagFile%
-}
-
 ; Define the script version
-	ScriptVersion := "1.0.0"
+ScriptVersion := "1.0.0"
 
 ; Define the URL where the latest version is hosted
-	VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/version.txt"
+VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/main/version.txt"
 
 ; Path to temporarily download the version file
-	TempVersionFile := A_Temp "\latest_version.txt"
+TempVersionFile := A_Temp "\latest_version.txt"
 
 ; Download the latest version number from the web
-	URLDownloadToFile, %VersionUrl%, %TempVersionFile%
+URLDownloadToFile, %VersionUrl%, %TempVersionFile%
 
 ; Check if the version file was downloaded successfully
 if !FileExist(TempVersionFile) {
@@ -44,13 +33,16 @@ if !FileExist(TempVersionFile) {
 }
 
 ; Read the version number from the downloaded file
-	FileRead, LatestVersion, %TempVersionFile%
+FileRead, LatestVersion, %TempVersionFile%
 
-; Trim any extra whitespace from the downloaded version
-	LatestVersion := Trim(LatestVersion)
+; Trim any extra whitespace or newline characters from the downloaded version
+LatestVersion := Trim(LatestVersion)
 
-; Display the LatestVersion to ensure it's being read correctly
-	MsgBox, LatestVersion is %LatestVersion%  ; Debugging step, remove later
+; Check if the version format is correct (should be like x.y.z)
+if !RegExMatch(LatestVersion, "^\d+\.\d+\.\d+$") {
+    MsgBox, Error: Invalid version format in the downloaded file.
+    ExitApp
+}
 
 ; Function to compare versions
 IsNewerVersion(CurrentVersion, RemoteVersion) {
@@ -64,7 +56,7 @@ IsNewerVersion(CurrentVersion, RemoteVersion) {
         If (RemoteParts[A_Index] < CurrentParts[A_Index])
             return false
     }
-    return false  ; Return false if the versions are the same or older
+    return false  ; Return false if the versions are the same or the remote version is older
 }
 
 ; Check if the online version is newer
@@ -80,15 +72,17 @@ if IsNewerVersion(ScriptVersion, LatestVersion) {
         ; If the user selects No, continue silently
         return
     }
+} else {
+    MsgBox, You are already using the latest version (%ScriptVersion%).
 }
 
 ; Function to update the script
 UpdateScript() {
     ; Define the URL for the updated script (replace this with the actual script URL)
-    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Multi-report-with-menu.ahk"
-	
+    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/main/Multi-report-with-menu.ahk"
+
     ; Path to save the downloaded script
-    UpdatedScriptPath := A_Desktop "\Multi-report-with-men.ahk"
+    UpdatedScriptPath := A_Desktop "\Multi-report-with-menu.ahk"
 
     ; Download the updated script
     URLDownloadToFile, %ScriptDownloadUrl%, %UpdatedScriptPath%
@@ -106,6 +100,7 @@ UpdateScript() {
         MsgBox, Error: Failed to download the updated script.
     }
 }
+
 
 ; Create a GUI window
 Gui, Add, ListBox, vMyListBox w310 h155, Pressing Numpad0 will send report for "Cheating"|Pressing Numpad1 will send report for "ALL"|Pressing Numpad2 will send report for "Exploiting"|Pressing Numpad3 will send report for "Text Chat-Spam"|Pressing Numpad4 types "Nice Cheats!" in chat|Pressing Numpad5 will send report for "Text Chat-Offensive"|Pressing Numpad6 types "Reported!" in chat|Pressing Numpad7 will send report for "Voice Chat-Offensive"|Pressing Numpad8 will send report for "UserName-Offensive"|Pressing Numpad9 will send report for "ClanTag-Offensive"|Pressing Numpad+ will buy the first person back on list.
