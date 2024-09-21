@@ -9,7 +9,7 @@ logFile := "C:\Reportlogfile1080.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "1.0.2"
+ScriptVersion := "1.0.3"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
 VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/main/version-1080.txt"
@@ -220,7 +220,7 @@ return
 
 NumpadAdd::
      FileAppend, %A_Now% - Bought Someone back.`n, %logFile%
-     Click, 191, 143
+     Click, 297, 292
 	
 return
 
