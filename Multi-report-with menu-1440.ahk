@@ -12,10 +12,10 @@ FileAppend, %A_Now% - Script started.`n, %logFile%
 ScriptVersion := "1.0.2"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
-VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/main/version1440.txt"
+VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1440.txt"
 
 ; Path to temporarily download the version file
-TempVersionFile := A_Temp "\latest_version.txt"
+TempVersionFile := A_Temp "\latest_version-1440.txt"
 
 ; Download the latest version number from the web (raw content)
 URLDownloadToFile, %VersionUrl%, %TempVersionFile%
@@ -74,10 +74,10 @@ if IsNewerVersion(ScriptVersion, LatestVersion) {
 ; Function to update the script
 UpdateScript() {
     ; Define the URL for the updated script (replace this with the actual script URL)
-    ScriptDownloadUrl := "https://github.com/PrisonSnitch/AHKs/blob/main/Multi-report-with%20menu-1440.ahk"
+    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Multi-report-with-menu-1440.ahk"
 
     ; Path to save the downloaded script
-    UpdatedScriptPath := A_Desktop "\Multi-report-with-menu1440.ahk"
+    UpdatedScriptPath := A_Desktop "\Multi-report-with-menu.ahk"
 
     ; Download the updated script
     URLDownloadToFile, %ScriptDownloadUrl%, %UpdatedScriptPath%
