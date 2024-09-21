@@ -9,7 +9,7 @@ logFile := "C:\Reportlogfile1440.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "1.0.3"
+ScriptVersion := "1.0.4"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
 VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1440.txt"
@@ -107,53 +107,48 @@ Numpad1::
     FileAppend, %A_Now% - Numpad1 pressed.`n, %logFile%
     SendInput, x
     Sleep, 200
-    Click, 1131, 512  ; (848 * 1.3333, 384 * 1.3333)
+    Click, 848, 384
     Sleep, 200
-    Click, 1131, 613  ; (848 * 1.3333, 460 * 1.3333)
+    Click, 848, 460
     Sleep, 200
-    Click, 1131, 706  ; (848 * 1.3333, 530 * 1.3333)
+    Click, 848, 530
     Sleep, 200
-    Click, 1131, 808  ; (848 * 1.3333, 606 * 1.3333)
+    Click, 848, 606
     Sleep, 200
-    Click, 1131, 906  ; (848 * 1.3333, 680 * 1.3333)
+    Click, 848, 680
     Sleep, 200
-    Click, 1131, 1004 ; (848 * 1.3333, 753 * 1.3333)
+    Click, 848, 753
     Sleep, 200
-    Click, 1131, 1100 ; (848 * 1.3333, 825 * 1.3333)
+    Click, 848, 825
     Sleep, 200
-    Click, 1131, 613  ; (848 * 1.3333, 460 * 1.3333)
-    Sleep, 200
-    Click, 1284, 1222 ; (963 * 1.3333, 917 * 1.3333)
+    Click, 963, 917
 return
 
 Numpad0::
     FileAppend, %A_Now% - Numpad0 pressed.`n, %logFile%
     SendInput, x
     Sleep, 200
-    Click, 1131, 512  ; (848 * 1.3333, 384 * 1.3333)
+    Click, 848, 385
     Sleep, 200
-    Click, 1253, 1230 ; (940 * 1.3333, 923 * 1.3333)
-    Click, 1284, 1222 ; (963 * 1.3333, 917 * 1.3333)
+    Click, 963, 917
 return
 
 Numpad2::
     FileAppend, %A_Now% - Numpad2 pressed.`n, %logFile%
     SendInput, x
     Sleep, 200
-    Click, 1131, 613  ; (848 * 1.3333, 460 * 1.3333)
+    Click, 848, 460
     Sleep, 200
-    Click, 1253, 1230 ; (940 * 1.3333, 923 * 1.3333)
-    Click, 1284, 1222 ; (963 * 1.3333, 917 * 1.3333)
+    Click, 963, 917
 return
 
 Numpad3::
     FileAppend, %A_Now% - Numpad3 pressed.`n, %logFile%
     SendInput, x
     Sleep, 200
-    Click, 1131, 706  ; (848 * 1.3333, 530 * 1.3333)
+    Click, 848, 530
     Sleep, 200
-    Click, 1253, 1230 ; (940 * 1.3333, 923 * 1.3333)
-    Click, 1284, 1222 ; (963 * 1.3333, 917 * 1.3333)
+    Click, 963, 917
 return
 
 Numpad4::
@@ -162,18 +157,16 @@ Numpad4::
     Sleep, 200
     SendInput, Nice Cheats!
     Sleep, 200
-    Click, 1284, 1222 ; (963 * 1.3333, 917 * 1.3333)
+    Click, 963, 917
 return
 
 Numpad5::
     FileAppend, %A_Now% - Numpad5 pressed.`n, %logFile%
     SendInput, x
     Sleep, 200
-    Click, 1131, 808  ; (848 * 1.3333, 606 * 1.3333)
+    Click, 848, 606
     Sleep, 200
-    Click, 1253, 1230 ; (940 * 1.3333, 923 * 1.3333)
-    Sleep, 200
-    Click, 1284, 1222 ; (963 * 1.3333, 917 * 1.3333)
+    Click, 910, 923
 return
 
 Numpad6::
@@ -182,45 +175,48 @@ Numpad6::
     Sleep, 200
     SendInput, Reported!
     Sleep, 200
-    Click, 1284, 1222 ; (963 * 1.3333, 917 * 1.3333)
+    Click, 963, 917
 return
 
 Numpad7::
     FileAppend, %A_Now% - Numpad7 pressed.`n, %logFile%
     SendInput, x
     Sleep, 200
-    Click, 1131, 906  ; (848 * 1.3333, 680 * 1.3333)
+    Click, 848, 680
     Sleep, 200
-    Click, 1253, 1230 ; (940 * 1.3333, 923 * 1.3333)
-    Sleep, 200
-    Click, 1284, 1222 ; (963 * 1.3333, 917 * 1.3333)
+    Click, 955, 930
 return
 
 Numpad8::
     FileAppend, %A_Now% - Numpad8 pressed.`n, %logFile%
     SendInput, x
     Sleep, 200
-    Click, 1131, 1004 ; (848 * 1.3333, 753 * 1.3333)
+    Click, 848, 753
     Sleep, 200
-    Click, 1253, 1230 ; (940 * 1.3333, 923 * 1.3333)
-    Sleep, 200
-    Click, 1284, 1222 ; (963 * 1.3333, 917 * 1.3333)
+    Click, 940, 923
 return
 
 Numpad9::
     FileAppend, %A_Now% - Numpad9 pressed.`n, %logFile%
     SendInput, x
     Sleep, 200
-    Click, 1131, 1100 ; (848 * 1.3333, 825 * 1.3333)
-    Sleep, 200
-    Click, 1253, 1230 ; (940 * 1.3333, 923 * 1.3333)
-    Sleep, 200
-    Click, 1284, 1222 ; (963 * 1.3333, 917 * 1.3333)
+    Click, 848, 825
+	Sleep, 200
+    Click, 940, 923
 return
 
 NumpadAdd::
      FileAppend, %A_Now% - Bought Someone back.`n, %logFile%
-     Click, 396, 389
+	 Click right
+	 Sleep, 200
+     Click, 260, 287
+	 Sleep, 200
+	 Send, {Esc}
+return
+
+; Hotkey to show the GUI again (Ctrl + S)
+^s::
+    Gui, Show
 return
 
 ; Define hotkey to open the log file
