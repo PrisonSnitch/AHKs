@@ -9,13 +9,17 @@ logFile := "C:\Reportlogfile1440.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "1.0.3"
+ScriptVersion := "1.0.2"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
 VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1440.txt"
 
 ; Path to temporarily download the version file
 TempVersionFile := A_Temp "\latest_version-1440.txt"
+
+DebugMode := true
+if DebugMode
+    FileAppend, %A_Now% - Debug: Download successful.`n, %logFile%
 
 ; Download the latest version number from the web (raw content)
 URLDownloadToFile, %VersionUrl%, %TempVersionFile%
@@ -74,7 +78,7 @@ if IsNewerVersion(ScriptVersion, LatestVersion) {
 ; Function to update the script
 UpdateScript() {
     ; Define the URL for the updated script (replace this with the actual script URL)
-    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Multi-report-with-menu-1440.ahk"
+    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Multi-report-with%20menu-1440.ahk"
 
     ; Path to save the downloaded script
     UpdatedScriptPath := A_Desktop "\Multi-report-with-menu.ahk"
@@ -220,7 +224,7 @@ return
 
 NumpadAdd::
      FileAppend, %A_Now% - Bought Someone back.`n, %logFile%
-     Click, 255, 190 ; (191 * 1.3333, 143 * 1.3333)
+     Click, 396, 389
 return
 
 ; Define hotkey to open the log file
