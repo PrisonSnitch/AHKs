@@ -81,7 +81,7 @@ UpdateScript() {
     ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Multi-report-with-menu-1080.ahk"
 
     ; Path to save the downloaded script
-    UpdatedScriptPath := A_Desktop "\Multi-report-with-menu.ahk"
+    UpdatedScriptPath := A_Desktop "\Multi-report-with-menu-1080.ahk"
 
     ; Download the updated script
     URLDownloadToFile, %ScriptDownloadUrl%, %UpdatedScriptPath%
