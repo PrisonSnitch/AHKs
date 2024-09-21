@@ -72,7 +72,7 @@ if IsNewerVersion(ScriptVersion, LatestVersion) {
         return
     }
 } else {
-    MsgBox, You are already using the latest version (%ScriptVersion%).
+    MsgBox, You are using the latest version (%ScriptVersion%).
 }
 
 ; Function to update the script
