@@ -108,7 +108,7 @@ Gui, Add, Button, gCancelScript x200 y158 w120 h35, Cancel Script
 Gui, Show, w330 h200, Report Actions
 
 ; Define Numpad hotkeys
-; Reports for cheating
+; Reports for "Cheating"
 Numpad0::
     FileAppend, %A_Now% - Numpad0 pressed.`n, %logFile%
     SendInput, x
@@ -118,7 +118,7 @@ Numpad0::
     Click, 1282, 1228
 return
 
-; Reports for "Exploiting"
+; Reports for "All"
 Numpad1::
     FileAppend, %A_Now% - Numpad1 pressed.`n, %logFile%
     SendInput, x
