@@ -10,7 +10,7 @@ flagFile := A_Temp "\Reportlogfile1080.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "1.0.4"
+ScriptVersion := "1.0.5"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
 VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1080.txt"
@@ -108,115 +108,127 @@ Gui, Add, Button, gCancelScript x200 y158 w120 h35, Cancel Script
 Gui, Show, w330 h200, Report Actions
 
 ; Define Numpad hotkeys
-Numpad1::
-    FileAppend, %A_Now% - Numpad1 pressed.`n, %logFile%
-    SendInput, x
-    Sleep, 200
-    Click, 848, 384
-    Sleep, 200
-    Click, 848, 460
-    Sleep, 200
-    Click, 848, 530
-    Sleep, 200
-    Click, 848, 606
-    Sleep, 200
-    Click, 848, 680
-    Sleep, 200
-    Click, 848, 753
-    Sleep, 200
-    Click, 848, 825
-    Sleep, 200
-    Click, 963, 917
-return
-
+; Reports for everything
 Numpad0::
     FileAppend, %A_Now% - Numpad0 pressed.`n, %logFile%
     SendInput, x
-    Sleep, 200
+    Sleep, 300
     Click, 848, 385
-    Sleep, 200
+    Sleep, 300
     Click, 963, 917
 return
 
+;Pressing Numpad0 will send report for "Cheating"
+;Reports for cheating
+Numpad1::
+    FileAppend, %A_Now% - Numpad1 pressed.`n, %logFile%
+    SendInput, x
+    Sleep, 300
+    Click, 848, 384
+    Sleep, 300
+    Click, 848, 460
+    Sleep, 300
+    Click, 848, 530
+    Sleep, 300
+    Click, 848, 606
+    Sleep, 300
+    Click, 848, 680
+    Sleep, 300
+    Click, 848, 753
+    Sleep, 300
+    Click, 848, 825
+    Sleep, 300
+    Click, 963, 917
+return
+
+;Reports for "Exploiting"
 Numpad2::
     FileAppend, %A_Now% - Numpad2 pressed.`n, %logFile%
     SendInput, x
-    Sleep, 200
+    Sleep, 300
     Click, 848, 460
-    Sleep, 200
+    Sleep, 300
     Click, 963, 917
 return
 
+;Reports for "Text Chat-Spam"
 Numpad3::
     FileAppend, %A_Now% - Numpad3 pressed.`n, %logFile%
     SendInput, x
-    Sleep, 200
+    Sleep, 300
     Click, 848, 530
-    Sleep, 200
+    Sleep, 300
     Click, 963, 917
 return
 
+;Types message in chat
 Numpad4::
     FileAppend, %A_Now% - Numpad4 pressed.`n, %logFile%
     SendInput, {Enter}
-    Sleep, 200
+    Sleep, 300
     SendInput, Nice Cheats!
-    Sleep, 200
+    Sleep, 300
     Click, 963, 917
 return
 
+;Reports for "Text Chat-Offensive"
 Numpad5::
     FileAppend, %A_Now% - Numpad5 pressed.`n, %logFile%
     SendInput, x
-    Sleep, 200
+    Sleep, 300
     Click, 848, 606
-    Sleep, 200
+    Sleep, 300
     Click, 910, 923
 return
 
+;Types message in chat
 Numpad6::
     FileAppend, %A_Now% - Numpad6 pressed.`n, %logFile%
     SendInput, {Enter}
-    Sleep, 200
+    Sleep, 300
     SendInput, Reported!
-    Sleep, 200
+    Sleep, 300
     Click, 963, 917
 return
 
+;Reports for "Voice chat-Offensive"
 Numpad7::
     FileAppend, %A_Now% - Numpad7 pressed.`n, %logFile%
     SendInput, x
-    Sleep, 200
+    Sleep, 300
     Click, 848, 680
-    Sleep, 200
+    Sleep, 300
     Click, 955, 930
 return
 
+; Reports for"UserName-Offensive"
 Numpad8::
     FileAppend, %A_Now% - Numpad8 pressed.`n, %logFile%
     SendInput, x
-    Sleep, 200
+    Sleep, 300
     Click, 848, 753
-    Sleep, 200
+    Sleep, 300
     Click, 940, 923
 return
 
+; Reports for "Clan Tag-Offensive"
 Numpad9::
     FileAppend, %A_Now% - Numpad9 pressed.`n, %logFile%
     SendInput, x
-    Sleep, 200
+    Sleep, 300
     Click, 848, 825
-	Sleep, 200
+    Sleep, 300
     Click, 940, 923
 return
 
+; Buys someone back in game
 NumpadAdd::
      FileAppend, %A_Now% - Bought Someone back.`n, %logFile%
-	 Click right
-	 Sleep, 200
+     Click right
+     Sleep, 300
      Click, 260, 287
-	 Sleep, 200
-	 Send, {Esc}
+     Sleep, 300
+     Send, {Esc}
 return
 
 ; Hotkey to show the GUI again (Ctrl + S)
