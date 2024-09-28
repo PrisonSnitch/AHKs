@@ -3,7 +3,8 @@ SendMode, Input
 #Persistent
 
 ; Define log file path
-logFile := "C:\Reportlogfile1440.txt"
+logFile := A_Temp "\Reportlogfile1440.txt"
+flagFile := A_Temp "\Reportlogfile1440.txt"
 
 ; Initialize log file with script start time
 FileAppend, %A_Now% - Script started.`n, %logFile%
