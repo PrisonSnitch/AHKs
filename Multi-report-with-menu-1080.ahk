@@ -82,7 +82,7 @@ if IsNewerVersion(ScriptVersion, LatestVersion) {
 ; Function to update the script
 UpdateScript() {
     ; Define the URL for the updated script (replace this with the actual script URL)
-    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Multi-report-with-menu-1080.ahk"
+    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1080.txt"
 
     ; Path to save the downloaded script
     UpdatedScriptPath := A_Desktop "\Multi-report-with-menu-1080.ahk"
