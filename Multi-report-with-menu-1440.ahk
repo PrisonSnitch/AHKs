@@ -10,7 +10,7 @@ flagFile := A_Temp "\Reportlogfile1440.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "1.0.5"
+ScriptVersion := "2.0.0"
 
 if DebugMode
     FileAppend, %A_Now% - Debug: LatestVersion is '%LatestVersion%'.`n, %logFile%
