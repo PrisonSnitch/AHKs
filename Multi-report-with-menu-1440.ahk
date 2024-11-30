@@ -10,7 +10,7 @@ flagFile := A_Temp "\Reportlogfile1440.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "1.0.5"
+ScriptVersion := "1.1.0"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
 VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1440.txt"
@@ -90,7 +90,7 @@ UpdateScript() {
     ; Check if the updated script was downloaded successfully
     if FileExist(UpdatedScriptPath)
     {
-        MsgBox, The script was updated successfully.`nRestarting the script...
+        MsgBox, The script was updated successfully for BO6.`nRestarting the script...
         ; Run the new version of the script and exit the current instance
         Run, %UpdatedScriptPath%
         ExitApp
@@ -113,9 +113,9 @@ Numpad0::
     FileAppend, %A_Now% - Numpad0 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1130, 510
+    Click, 1160, 571 ; Reports for "Cheating"
     Sleep, 300
-    Click, 1282, 1228
+    Click, 1284, 1234 ; Clicks "Send report"
 return
 
 ; Reports for "All"
@@ -123,21 +123,21 @@ Numpad1::
     FileAppend, %A_Now% - Numpad1 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1130, 510
+    Click, 1160, 571 ; Reports for "Cheating"
     Sleep, 300
-    Click, 1130, 612
+    Click, 1160, 658 ; Reports for "Exploiting"
     Sleep, 300
-    Click, 1130, 706
+    Click, 1160, 740 ; Reports for "Text Chat-Spam"
     Sleep, 300
-    Click, 1130, 808
+    Click, 1160, 822 ; Reports for "Text Chat-Offensive"
     Sleep, 300
-    Click, 1130, 904
+    Click, 1160, 905 ; Reports for "Voice chat-Offensive"
     Sleep, 300
-    Click, 1130, 1004
+    Click, 1160, 990 ; Reports for "UserName-Offensive"
     Sleep, 300
-    Click, 1130, 1106
+    Click, 1160, 1076 ; Reports for "Clan Tag-Offensive"
     Sleep, 300
-    Click, 1282, 1228
+    Click, 1284, 1234  ; Clicks "Send report"
 return
 
 ; Reports for "Exploiting"
@@ -145,9 +145,9 @@ Numpad2::
     FileAppend, %A_Now% - Numpad2 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1130, 612
+    Click, 1160, 658 ; Reports for "Exploiting"
     Sleep, 300
-    Click, 1282, 1228
+    Click, 1284, 1234 ; Clicks "Send report"
 return
 
 ; Reports for "Text Chat-Spam"
@@ -155,9 +155,9 @@ Numpad3::
     FileAppend, %A_Now% - Numpad3 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1130, 706
+    Click, 1160, 740 ; Reports for "Text Chat-Spam"
     Sleep, 300
-    Click, 1282, 1228
+    Click, 1284, 1234 ; Clicks "Send report"
 return
 
 ; Types message in chat
@@ -167,7 +167,7 @@ Numpad4::
     Sleep, 300
     SendInput, Nice Cheats!
     Sleep, 300
-    Click, 1282, 1228
+    Click, 1284, 1234 ; Clicks "Send report"
 return
 
 ; Reports for "Text Chat-Offensive"
@@ -175,9 +175,9 @@ Numpad5::
     FileAppend, %A_Now% - Numpad5 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1130, 808
+    Click, 1160, 808 ; Reports for "Text Chat-Spam"
     Sleep, 300
-    Click, 1216, 1230
+    Click, 1284, 1234 ; Clicks "Send report"
 return
 
 ; Types message in chat
@@ -187,7 +187,7 @@ Numpad6::
     Sleep, 300
     SendInput, Reported!
     Sleep, 300
-    Click, 1282, 1228
+    Click, 1284, 1234 ; Clicks "Send report"
 return
 
 ; Reports for "Voice chat-Offensive"
@@ -195,19 +195,19 @@ Numpad7::
     FileAppend, %A_Now% - Numpad7 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1130, 904
+    Click, 1160, 904 ; Reports for "Voice chat-Offensive"
     Sleep, 300
-    Click, 1273, 1250
+    Click, 1284, 1234 ; Clicks "Send report"
 return
 
-; Reports for"UserName-Offensive"
+; Reports for "UserName-Offensive"
 Numpad8::
     FileAppend, %A_Now% - Numpad8 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1130, 1004
+    Click, 1160, 1004 ; Reports for "UserName-Offensive"
     Sleep, 300
-    Click, 1253, 1230
+    Click, 1284, 1234 ; Clicks "Send report"
 return
 
 ; Reports for "Clan Tag-Offensive"
@@ -215,9 +215,9 @@ Numpad9::
     FileAppend, %A_Now% - Numpad9 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1130, 1106
+    Click, 1160, 1106 ; Reports for "Clan Tag-Offensive"
     Sleep, 300
-    Click, 1253, 1230
+    Click, 1284, 1234 ; Clicks "Send report"
 return
 
 ; Buys someone back in game
@@ -225,7 +225,7 @@ NumpadAdd::
      FileAppend, %A_Now% - Bought Someone back.`n, %logFile%
      Click right
      Sleep, 300
-     Click, 347, 383
+     Click, 347, 383 ; Clicks on the first persons name to buy back
      Sleep, 300
      Send, {Esc}
 return
