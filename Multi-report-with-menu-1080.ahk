@@ -10,7 +10,10 @@ flagFile := A_Temp "\Reportlogfile1080.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "2.0"
+ScriptVersion := "1.0.5"
+
+if DebugMode
+    FileAppend, %A_Now% - Debug: LatestVersion is '%LatestVersion%'.`n, %logFile%
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
 VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1080.txt"
@@ -100,6 +103,10 @@ UpdateScript() {
         MsgBox, Error: Failed to download the updated script.
     }
 }
+
+LatestVersion := StrReplace(LatestVersion, "`r`n", "")  ; Normalize line endings
+LatestVersion := StrReplace(LatestVersion, "`n", "")   ; Remove newlines
+LatestVersion := Trim(LatestVersion)                  ; Remove leading/trailing spaces
 
 ; Create a GUI window
 Gui, Add, ListBox, vMyListBox w310 h155, Pressing Numpad0 will send report for "Cheating"|Pressing Numpad1 will send report for "ALL"|Pressing Numpad2 will send report for "Exploiting"|Pressing Numpad3 will send report for "Text Chat-Spam"|Pressing Numpad4 types "Nice Cheats!" in chat|Pressing Numpad5 will send report for "Text Chat-Offensive"|Pressing Numpad6 types "Reported!" in chat|Pressing Numpad7 will send report for "Voice Chat-Offensive"|Pressing Numpad8 will send report for "UserName-Offensive"|Pressing Numpad9 will send report for "ClanTag-Offensive"|Pressing Numpad+ will buy the first person back on list.
