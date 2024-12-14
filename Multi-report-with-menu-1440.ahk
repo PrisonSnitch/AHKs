@@ -10,7 +10,7 @@ flagFile := A_Temp "\Reportlogfile1440.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "2.0.0"
+ScriptVersion := "2.1.0"
 
 ; Read saved Numpad4 and Numpad6 text from file
 Numpad4TextFile := A_Temp "\Numpad4Text.txt"
