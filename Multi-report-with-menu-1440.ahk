@@ -101,9 +101,6 @@ UpdateScript() {
     }
 }
 
-; Define the script version
-ScriptVersion := "2.1.0"
-
 ; Read saved Numpad4 and Numpad6 text from file
 Numpad4TextFile := A_Temp "\Numpad4Text.txt"
 Numpad6TextFile := A_Temp "\Numpad6Text.txt"
