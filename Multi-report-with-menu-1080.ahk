@@ -13,7 +13,7 @@ FileAppend, %A_Now% - Script started.`n, %logFile%
 ScriptVersion := "2.1.0"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
-VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1440.txt"
+VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1080.txt"
 
 ; Path to temporarily download the version file
 TempVersionFile := A_Temp "\latest_version-1080.txt"
