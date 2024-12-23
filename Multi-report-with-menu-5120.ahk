@@ -13,7 +13,7 @@ FileAppend, %A_Now% - Script started.`n, %logFile%
 ScriptVersion := "2.0.0"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
-VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1080.txt"
+VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-5120.txt"
 
 ; Path to temporarily download the version file
 TempVersionFile := A_Temp "\latest_version-5120.txt"
@@ -79,7 +79,7 @@ if IsNewerVersion(ScriptVersion, LatestVersion) {
 ; Function to update the script
 UpdateScript() {
     ; Define the URL for the updated script (replace this with the actual script URL)
-    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Multi-report-with-menu-1080.ahk"
+    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Multi-report-with-menu-5120.ahk"
 
     ; Path to save the downloaded script
     UpdatedScriptPath := A_Desktop "\Multi-report-with-menu-5120.ahk"
@@ -102,7 +102,7 @@ UpdateScript() {
 }
 
 ; Define the script version
-ScriptVersion := "2.0.0"
+ScriptVersion := "2.1.0"
 
 ; Read saved Numpad4 and Numpad6 text from file
 Numpad4TextFile := A_Temp "\Numpad4Text.txt"
