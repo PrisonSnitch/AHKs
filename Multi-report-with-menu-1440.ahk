@@ -140,7 +140,7 @@ Gui, Add, Button, gCloseGUI x268 y220 w120 h35, Close GUI
 Gui, Add, Button, gCancelScript x138 y220 w120 h35, Cancel Script
 Gui, Show, w400 h265, Report Actions
 
-; Define Numpad hotkeys (adjusted click coordinates for 2560x1440 resolution)
+; Define Numpad hotkeys (adjusted click coordinates for 1440x1080 resolution)
 Numpad0:: 
     FileAppend, %A_Now% - Numpad0 pressed.`n, %logFile%
     SendInput, x
