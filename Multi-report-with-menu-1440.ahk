@@ -3,8 +3,8 @@ SendMode, Input
 #Persistent
 
 ; Define log file path
-logFile := A_Temp "\Reportlogfile1440.txt"
-flagFile := A_Temp "\Reportlogfile1440.txt"
+logFile := A_Temp "\Reportlogfile1440.txt" 
+flagFile := A_Temp "\Reportlogfile1440.txt" 
 
 ; Initialize log file with script start time
 FileAppend, %A_Now% - Script started.`n, %logFile%
@@ -16,7 +16,7 @@ ScriptVersion := "2.1.0"
 VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1440.txt"
 
 ; Path to temporarily download the version file
-TempVersionFile := A_Temp "\latest_version-1440.txt"
+TempVersionFile := A_Temp "\latest_version-1440.txt" 
 
 DebugMode := true
 if DebugMode
@@ -79,10 +79,10 @@ if IsNewerVersion(ScriptVersion, LatestVersion) {
 ; Function to update the script
 UpdateScript() {
     ; Define the URL for the updated script (replace this with the actual script URL)
-    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Multi-report-with-menu-1440.ahk"
+    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Multi-report-with-menu-1440.ahk" 
 
     ; Path to save the downloaded script
-    UpdatedScriptPath := A_Desktop "\Multi-report-with-menu-1440.ahk"
+    UpdatedScriptPath := A_Desktop "\Multi-report-with-menu-1440.ahk" 
 
     ; Download the updated script
     URLDownloadToFile, %ScriptDownloadUrl%, %UpdatedScriptPath%
@@ -140,53 +140,53 @@ Gui, Add, Button, gCloseGUI x268 y220 w120 h35, Close GUI
 Gui, Add, Button, gCancelScript x138 y220 w120 h35, Cancel Script
 Gui, Show, w400 h265, Report Actions
 
-; Define Numpad hotkeys (adjusted click coordinates for 1440x1080 resolution)
+; Define Numpad hotkeys (adjusted click coordinates for 2560x1440 resolution) 
 Numpad0:: 
     FileAppend, %A_Now% - Numpad0 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1305, 560  ; Reports for "Cheating"
+    Click, 1156, 630  ; Reports for "Cheating"
     Sleep, 300
-    Click, 1446, 1200 ; Clicks "Send report"
+    Click, 1213, 1335 ; Clicks "Send report"
 return
 
 Numpad1:: 
     FileAppend, %A_Now% - Numpad1 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1305, 560 ; Reports for "Cheating"
+    Click, 1156, 630 ; Reports for "Cheating"
     Sleep, 300
-    Click, 1305, 640 ; Reports for "Exploiting"
+    Click, 1156, 720 ; Reports for "Exploiting"
     Sleep, 300
-    Click, 1305, 720 ; Reports for "Text Chat-Spam"
+    Click, 1156, 810 ; Reports for "Text Chat-Spam"
     Sleep, 300
-    Click, 1305, 780 ; Reports for "Text Chat-Offensive"
+    Click, 1156, 900 ; Reports for "Text Chat-Offensive"
     Sleep, 300
-    Click, 1305, 880 ; Reports for "Voice chat-Offensive"
+    Click, 1156, 990 ; Reports for "Voice chat-Offensive"
     Sleep, 300
-    Click, 1305, 960 ; Reports for "UserName-Offensive"
+    Click, 1156, 1077 ; Reports for "UserName-Offensive"
     Sleep, 300
-    Click, 1305, 1040 ; Reports for "Clan Tag-Offensive"
+    Click, 1156, 1170 ; Reports for "Clan Tag-Offensive"
     Sleep, 300
-    Click, 1446, 1200 ; Clicks "Send report"
+    Click, 1213, 1335 ; Clicks "Send report"
 return
 
 Numpad2:: 
     FileAppend, %A_Now% - Numpad2 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1305, 640 ; Reports for "Exploiting"
+    Click, 1156, 720 ; Reports for "Exploiting"
     Sleep, 300
-    Click, 1446, 1200 ; Clicks "Send report"
+    Click, 1213, 1335 ; Clicks "Send report"
 return
 
 Numpad3:: 
     FileAppend, %A_Now% - Numpad3 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1305, 720 ; Reports for "Text Chat-Spam"
+    Click, 1156, 810 ; Reports for "Text Chat-Spam"
     Sleep, 300
-    Click, 1446, 1200 ; Clicks "Send report"
+    Click, 1213, 1335 ; Clicks "Send report"
 return
 
 Numpad4:: 
@@ -195,16 +195,16 @@ Numpad4::
     Sleep, 300
     SendInput, %Numpad4Text%
     Sleep, 300
-    Click, 1446, 1200 ; Clicks "Send report"
+    Click, 1213, 1335 ; Clicks "Send report"
 return
 
 Numpad5:: 
     FileAppend, %A_Now% - Numpad5 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1305, 780 ; Reports for "Text Chat-Spam"
+    Click, 1156, 900 ; Reports for "Text Chat-Spam"
     Sleep, 300
-    Click, 1446, 1200 ; Clicks "Send report"
+    Click, 1213, 1335 ; Clicks "Send report"
 return
 
 Numpad6:: 
@@ -213,34 +213,43 @@ Numpad6::
     Sleep, 300
     SendInput, %Numpad6Text%
     Sleep, 300
-    Click, 1446, 1200 ; Clicks "Send report"
+    Click, 1213, 1335 ; Clicks "Send report"
 return
 
 Numpad7:: 
     FileAppend, %A_Now% - Numpad7 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1305, 880 ; Reports for "Voice Chat-Offensive"
+    Click, 1156, 990 ; Reports for "Voice Chat-Offensive"
     Sleep, 300
-    Click, 1446, 1200 ; Clicks "Send report"
+    Click, 1213, 1335 ; Clicks "Send report"
 return
 
 Numpad8:: 
     FileAppend, %A_Now% - Numpad8 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1305, 960 ; Reports for "UserName-Offensive"
+    Click, 1156, 1077 ; Reports for "UserName-Offensive"
     Sleep, 300
-    Click, 1446, 1200 ; Clicks "Send report"
+    Click, 1213, 1335 ; Clicks "Send report"
 return
 
 Numpad9:: 
     FileAppend, %A_Now% - Numpad9 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
-    Click, 1305, 1040 ; Reports for "ClanTag-Offensive"
+    Click, 1156, 1170 ; Reports for "ClanTag-Offensive"
     Sleep, 300
-    Click, 1446, 1200 ; Clicks "Send report"
+    Click, 1213, 1335 ; Clicks "Send report"
+return
+
+NumpadAdd:: 
+    FileAppend, %A_Now% - Numpad+ pressed.`n, %logFile%
+    SendInput, {Enter}
+    Sleep, 300
+    Click, 512, 450 ; buys back the first person on list
+    Sleep, 300
+    SendInput, {Enter}
 return
 
 ; Button actions for the GUI (Close and Cancel Script)
@@ -255,13 +264,13 @@ return
 
 SaveChanges:
     ; Save the edited text from the GUI
-    Gui, Submit, NoHide
+    Gui, Submit, NoHide  ; Ensure it grabs the current input values from the GUI
 
     ; Save to the text files
     FileAppend, %A_Now% - Numpad4 text saved: %Numpad4Input%`n, %logFile%
     FileAppend, %A_Now% - Numpad6 text saved: %Numpad6Input%`n, %logFile%
-    
-    ; Save to the text files
+
+    ; Delete old files if they exist, then append new data
     FileDelete, %Numpad4TextFile%
     FileDelete, %Numpad6TextFile%
     FileAppend, %Numpad4Input%, %Numpad4TextFile%
@@ -269,8 +278,8 @@ SaveChanges:
 
     ; Create a custom Gui for the popup message
     Gui, +AlwaysOnTop
-    Gui, Add, Text, w400 h50 Center, Changes have been saved!`nNumpad4Input: %Numpad4Input%`nNumpad6Input: %Numpad6Input%
-    Gui, Show, w400 h50, Changes Saved
+    Gui, Add, Text, w400 h50 Center, Changes have been saved!`nNumpad4Input:
+    Gui, Show, w400 h265, Changes Saved
 
     ; Wait for 500ms before closing the Gui and reloading
     Sleep, 500
@@ -280,5 +289,4 @@ SaveChanges:
 
     ; Reload the script
     Reload
-
 return
