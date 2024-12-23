@@ -10,7 +10,99 @@ flagFile := A_Temp "\Reportlogfile1440.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "2.1.0"
+ScriptVersion := "2.0.0"
+
+; Define the correct URL where the latest version is hosted (raw GitHub link)
+VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1440.txt"
+
+; Path to temporarily download the version file
+TempVersionFile := A_Temp "\latest_version-1440.txt"
+
+DebugMode := true
+if DebugMode
+    FileAppend, %A_Now% - Debug: Download successful.`n, %logFile%
+    
+; Download the latest version number from the web (raw content)
+URLDownloadToFile, %VersionUrl%, %TempVersionFile%
+
+; Check if the version file was downloaded successfully
+if !FileExist(TempVersionFile) {
+    MsgBox, Error: Failed to download the version file.
+    ExitApp
+}
+
+; Read the version number from the downloaded file
+FileRead, LatestVersion, %TempVersionFile%
+
+; Trim any extra whitespace, BOM, or newline characters from the downloaded version
+LatestVersion := RegExReplace(LatestVersion, "^\s+|\s+$")  ; Trim leading/trailing spaces
+LatestVersion := StrReplace(LatestVersion, "`r`n", "")  ; Remove any carriage return and newline characters
+
+; Check if the version format is correct (should be like x.y.z)
+if !RegExMatch(LatestVersion, "^\d+\.\d+\.\d+$") {
+    MsgBox, Error: Invalid version format in the downloaded file: %LatestVersion%
+    ExitApp
+}
+
+; Function to compare versions
+IsNewerVersion(CurrentVersion, RemoteVersion) {
+    CurrentParts := StrSplit(CurrentVersion, ".")
+    RemoteParts := StrSplit(RemoteVersion, ".")
+
+    Loop, 3  ; Compare up to 3 parts (major, minor, patch)
+    {
+        If (RemoteParts[A_Index] > CurrentParts[A_Index])
+            return true
+        If (RemoteParts[A_Index] < CurrentParts[A_Index])
+            return false
+    }
+    return false  ; Return false if the versions are the same or the remote version is older
+}
+
+; Check if the online version is newer
+if IsNewerVersion(ScriptVersion, LatestVersion) {
+    MsgBox, 4, Update Available, A newer version (%LatestVersion%) of this script is available.`n`nDo you want to download and update the script now?
+    IfMsgBox, Yes
+    {
+        ; User selected Yes, proceed with downloading and updating
+        UpdateScript()
+    }
+    else
+    {
+        ; If the user selects No, continue silently
+        return
+    }
+} else {
+    MsgBox, You are using the latest version (%ScriptVersion%).
+}
+
+; Function to update the script
+UpdateScript() {
+    ; Define the URL for the updated script (replace this with the actual script URL)
+    ScriptDownloadUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Multi-report-with-menu-1440.ahk"
+
+    ; Path to save the downloaded script
+    UpdatedScriptPath := A_Desktop "\Multi-report-with-menu-1440.ahk"
+
+    ; Download the updated script
+    URLDownloadToFile, %ScriptDownloadUrl%, %UpdatedScriptPath%
+
+    ; Check if the updated script was downloaded successfully
+    if FileExist(UpdatedScriptPath)
+    {
+        MsgBox, The script was updated successfully.`nRestarting the script...
+        ; Run the new version of the script and exit the current instance
+        Run, %UpdatedScriptPath%
+        ExitApp
+    }
+    else
+    {
+        MsgBox, Error: Failed to download the updated script.
+    }
+}
+
+; Define the script version
+ScriptVersion := "2.0.0"
 
 ; Read saved Numpad4 and Numpad6 text from file
 Numpad4TextFile := A_Temp "\Numpad4Text.txt"
