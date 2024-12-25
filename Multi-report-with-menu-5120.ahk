@@ -121,16 +121,16 @@ if (FileExist(Numpad6TextFile))
 
 ; Create a GUI window
 Gui, Add, ListBox, vMyListBox w377 h155, Pressing Numpad0 will send report for "Cheating"
-|Pressing Numpad1 will send report for "ALL"
-|Pressing Numpad2 will send report for "Exploiting"
-|Pressing Numpad3 will send report for "Text Chat-Spam"
-|Pressing Numpad4 types "%Numpad4Text%" in chat
-|Pressing Numpad5 will send report for "Text Chat-Offensive"
-|Pressing Numpad6 types "%Numpad6Text%" in chat
-|Pressing Numpad7 will send report for "Voice Chat-Offensive"
-|Pressing Numpad8 will send report for "UserName-Offensive"
-|Pressing Numpad9 will send report for "ClanTag-Offensive"
-|Pressing Numpad+ will buy the first person back on list.
+|Pressing Crtl+Numpad1 will send report for "ALL"
+|Pressing Crtl+Numpad2 will send report for "Exploiting"
+|Pressing Crtl+Numpad3 will send report for "Text Chat-Spam"
+|Pressing Crtl+Numpad4 types "%Numpad4Text%" in chat
+|Pressing Crtl+Numpad5 will send report for "Text Chat-Offensive"
+|Pressing Crtl+Numpad6 types "%Numpad6Text%" in chat
+|Pressing Crtl+Numpad7 will send report for "Voice Chat-Offensive"
+|Pressing Crtl+Numpad8 will send report for "UserName-Offensive"
+|Pressing Crtl+Numpad9 will send report for "ClanTag-Offensive"
+|Pressing Crtl+Numpad+ will buy the first person back on list.
 
 Gui, Add, Edit, vNumpad4Input w377 h25, %Numpad4Text%
 Gui, Add, Edit, vNumpad6Input w377 h25, %Numpad6Text%
@@ -141,7 +141,7 @@ Gui, Add, Button, gCancelScript x138 y220 w120 h35, Cancel Script
 Gui, Show, w400 h265, Report Actions
 
 ; Define Numpad hotkeys (adjusted click coordinates for 5120x1440 resolution)
-Numpad0:: 
+^Numpad0:: 
     FileAppend, %A_Now% - Numpad0 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
@@ -150,7 +150,7 @@ Numpad0::
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-Numpad1:: 
+^Numpad1:: 
     FileAppend, %A_Now% - Numpad1 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
@@ -171,7 +171,7 @@ Numpad1::
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-Numpad2:: 
+^Numpad2:: 
     FileAppend, %A_Now% - Numpad2 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
@@ -180,7 +180,7 @@ Numpad2::
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-Numpad3:: 
+^Numpad3:: 
     FileAppend, %A_Now% - Numpad3 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
@@ -189,7 +189,7 @@ Numpad3::
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-Numpad4:: 
+^Numpad4:: 
     FileAppend, %A_Now% - Numpad4 pressed.`n, %logFile%
     SendInput, {Enter}
     Sleep, 300
@@ -198,7 +198,7 @@ Numpad4::
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-Numpad5:: 
+^Numpad5:: 
     FileAppend, %A_Now% - Numpad5 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
@@ -207,7 +207,7 @@ Numpad5::
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-Numpad6:: 
+^Numpad6:: 
     FileAppend, %A_Now% - Numpad6 pressed.`n, %logFile%
     SendInput, {Enter}
     Sleep, 300
@@ -216,7 +216,7 @@ Numpad6::
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-Numpad7:: 
+^Numpad7:: 
     FileAppend, %A_Now% - Numpad7 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
@@ -225,7 +225,7 @@ Numpad7::
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-Numpad8:: 
+^Numpad8:: 
     FileAppend, %A_Now% - Numpad8 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
@@ -234,7 +234,7 @@ Numpad8::
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-Numpad9:: 
+^Numpad9:: 
     FileAppend, %A_Now% - Numpad9 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
@@ -243,7 +243,7 @@ Numpad9::
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-NumpadAdd:: 
+^NumpadAdd:: 
     FileAppend, %A_Now% - Numpad+ pressed.`n, %logFile%
     SendInput, {Enter}
     Sleep, 300
@@ -290,3 +290,5 @@ SaveChanges:
     ; Reload the script
     Reload
 return
+
+^Esc::ExitApp
