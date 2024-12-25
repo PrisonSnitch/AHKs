@@ -291,3 +291,5 @@ SaveChanges:
     ; Reload the script
     Reload
 return
+
+^Esc::ExitApp
