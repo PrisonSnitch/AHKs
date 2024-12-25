@@ -3,7 +3,7 @@
 ; AutoHotkey script to scale screen coordinates with resolution options
 
 ; Predefined resolutions (use a pipe `|` to separate items for AHK v1)
-resolutionList = 1920 x 1080|2560 x 1440|5120 x 1440
+resolutionList = 1920 x 1080|2560 x 1080|2560 x 1440|5120 x 1440
 
 ; Add GUI components
 Gui, Add, Text,, Select Original Screen Resolution:
