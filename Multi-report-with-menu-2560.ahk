@@ -151,7 +151,7 @@ Gui, Show, w400 h265, Report Actions
 return
 
 ^Numpad1:: 
-    FileAppend, %A_Now% - Numpad1 pressed.`n, %logFile%
+    FileAppend, %A_Now% - Ctrl+Numpad1 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 1160, 420 ; Reports for "Cheating"
@@ -172,7 +172,7 @@ return
 return
 
 ^Numpad2:: 
-    FileAppend, %A_Now% - Numpad2 pressed.`n, %logFile%
+    FileAppend, %A_Now% - Ctrl+Numpad2 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 1160, 480 ; Reports for "Exploiting"
@@ -181,7 +181,7 @@ return
 return
 
 ^Numpad3:: 
-    FileAppend, %A_Now% - Numpad3 pressed.`n, %logFile%
+    FileAppend, %A_Now% - Ctrl+Numpad3 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 1160, 540 ; Reports for "Text Chat-Spam"
@@ -190,7 +190,7 @@ return
 return
 
 ^Numpad4:: 
-    FileAppend, %A_Now% - Numpad4 pressed.`n, %logFile%
+    FileAppend, %A_Now% - Ctrl+Numpad4 pressed.`n, %logFile%
     SendInput, {Enter}
     Sleep, 300
     SendInput, %Numpad4Text%
@@ -199,7 +199,7 @@ return
 return
 
 ^Numpad5:: 
-    FileAppend, %A_Now% - Numpad5 pressed.`n, %logFile%
+    FileAppend, %A_Now% - Ctrl+Numpad5 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 1160, 600 ; Reports for "Text Chat-Spam"
@@ -208,7 +208,7 @@ return
 return
 
 ^Numpad6:: 
-    FileAppend, %A_Now% - Numpad6 pressed.`n, %logFile%
+    FileAppend, %A_Now% - Ctrl+Numpad6 pressed.`n, %logFile%
     SendInput, {Enter}
     Sleep, 300
     SendInput, %Numpad6Text%
@@ -217,7 +217,7 @@ return
 return
 
 ^Numpad7:: 
-    FileAppend, %A_Now% - Numpad7 pressed.`n, %logFile%
+    FileAppend, %A_Now% - Ctrl+Numpad7 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 1160, 660 ; Reports for "Voice Chat-Offensive"
@@ -226,7 +226,7 @@ return
 return
 
 ^Numpad8:: 
-    FileAppend, %A_Now% - Numpad8 pressed.`n, %logFile%
+    FileAppend, %A_Now% - Ctrl+Numpad8 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 1160, 722 ; Reports for "UserName-Offensive"
@@ -235,7 +235,7 @@ return
 return
 
 ^Numpad9:: 
-    FileAppend, %A_Now% - Numpad9 pressed.`n, %logFile%
+    FileAppend, %A_Now% - Ctrl+Numpad9 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 1160, 785 ; Reports for "ClanTag-Offensive"
@@ -244,7 +244,7 @@ return
 return
 
 ^NumpadAdd:: 
-    FileAppend, %A_Now% - Numpad+ pressed.`n, %logFile%
+    FileAppend, %A_Now% - Ctrl+Numpad+ pressed.`n, %logFile%
     SendInput, {Enter}
     Sleep, 300
     Click, 375, 300 ; buys back the first person on list
