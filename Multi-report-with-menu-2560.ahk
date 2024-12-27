@@ -10,7 +10,7 @@ flagFile := A_Temp "\Reportlogfile2560.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "2.1.1"
+ScriptVersion := "2.1.2"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
 VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-2560.txt"
