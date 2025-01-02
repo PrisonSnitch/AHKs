@@ -195,7 +195,7 @@ return
     Sleep, 300
     SendInput, %Numpad4Text%
     Sleep, 300
-    Click, 1213, 1335 ; Clicks "Send report"
+    Send, {Enter}
 return
 
 ^Numpad5:: 
@@ -213,7 +213,7 @@ return
     Sleep, 300
     SendInput, %Numpad6Text%
     Sleep, 300
-    Click, 1213, 1335 ; Clicks "Send report"
+    Send, {Enter}
 return
 
 ^Numpad7:: 
