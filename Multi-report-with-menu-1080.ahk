@@ -10,7 +10,7 @@ flagFile := A_Temp "\Reportlogfile1080.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "2.1.3"
+ScriptVersion := "2.1.4"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
 VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1080.txt"
@@ -109,18 +109,18 @@ if (FileExist(Numpad4TextFile))
 {
     FileRead, Numpad4Text, %Numpad4TextFile%
 } else {
-    Numpad4Text := "Nice Cheats!"
+    Numpad4Text := "Text"
 }
 
 if (FileExist(Numpad6TextFile))
 {
     FileRead, Numpad6Text, %Numpad6TextFile%
 } else {
-    Numpad6Text := "Reported!"
+    Numpad6Text := "Text"
 }
 
 ; Create a GUI window
-Gui, Add, ListBox, vMyListBox w377 h155, Pressing Ctrl+Numpad0 will send report for "Cheating"
+Gui, Add, ListBox, vMyListBox w377 h150, Pressing Ctrl+Numpad0 will send report for "Cheating"
 |Pressing Ctrl+Numpad1 will send report for "ALL"
 |Pressing Ctrl+Numpad2 will send report for "Exploiting"
 |Pressing Ctrl+Numpad3 will send report for "Text Chat-Spam"
@@ -132,13 +132,17 @@ Gui, Add, ListBox, vMyListBox w377 h155, Pressing Ctrl+Numpad0 will send report 
 |Pressing Ctrl+Numpad9 will send report for "ClanTag-Offensive"
 |Pressing Ctrl+Numpad+ will buy the first person back on list.
 
-Gui, Add, Edit, vNumpad4Input w377 h25, %Numpad4Text%
-Gui, Add, Edit, vNumpad6Input w377 h25, %Numpad6Text%
+; Add labels for the input fields
+Gui, Add, Text, x10 y160, Numpad4 Text:
+Gui, Add, Edit, vNumpad4Input w377 h20, %Numpad4Text%
 
-Gui, Add, Button, gSaveChanges x9 y220 w120 h35, Save Changes
-Gui, Add, Button, gCloseGUI x268 y220 w120 h35, Close GUI
-Gui, Add, Button, gCancelScript x138 y220 w120 h35, Cancel Script
-Gui, Show, w400 h265, Report Actions
+Gui, Add, Text, x10 y205, Numpad6 Text:
+Gui, Add, Edit, vNumpad6Input w377 h20, %Numpad6Text%
+
+Gui, Add, Button, gSaveChanges x9 y260 w120 h35, Save Changes
+Gui, Add, Button, gCloseGUI x268 y260 w120 h35, Close GUI
+Gui, Add, Button, gCancelScript x138 y260 w120 h35, Cancel Script
+Gui, Show, w400 h310, Report Actions
 
 ; Define Numpad hotkeys (adjusted click coordinates for 1920x1080 resolution)
 ^Numpad0:: 
