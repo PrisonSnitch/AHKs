@@ -10,7 +10,7 @@ flagFile := A_Temp "\Reportlogfile5120.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "2.1.3"
+ScriptVersion := "2.1.4"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
 VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-5120.txt"
@@ -120,20 +120,24 @@ if (FileExist(Numpad6TextFile))
 }
 
 ; Create a GUI window
-Gui, Add, ListBox, vMyListBox w377 h155, Pressing Ctrl+Numpad0 will send report for "Cheating"
-|Pressing Crtl+Numpad1 will send report for "ALL"
-|Pressing Crtl+Numpad2 will send report for "Exploiting"
-|Pressing Crtl+Numpad3 will send report for "Text Chat-Spam"
-|Pressing Crtl+Numpad4 types "%Numpad4Text%" in chat
-|Pressing Crtl+Numpad5 will send report for "Text Chat-Offensive"
-|Pressing Crtl+Numpad6 types "%Numpad6Text%" in chat
-|Pressing Crtl+Numpad7 will send report for "Voice Chat-Offensive"
-|Pressing Crtl+Numpad8 will send report for "UserName-Offensive"
-|Pressing Crtl+Numpad9 will send report for "ClanTag-Offensive"
-|Pressing Crtl+Numpad+ will buy the first person back on list.
+Gui, Add, ListBox, vMyListBox w377 h155, Pressing Numpad0 will send report for "Cheating"
+|Pressing Numpad1 will send report for "ALL"
+|Pressing Numpad2 will send report for "Exploiting"
+|Pressing Numpad3 will send report for "Text Chat-Spam"
+|Pressing Numpad4 types "%Numpad4Text%" in chat
+|Pressing Numpad5 will send report for "Text Chat-Offensive"
+|Pressing Numpad6 types "%Numpad6Text%" in chat
+|Pressing Numpad7 will send report for "Voice Chat-Offensive"
+|Pressing Numpad8 will send report for "UserName-Offensive"
+|Pressing Numpad9 will send report for "ClanTag-Offensive"
+|Pressing Numpad+ will buy the first person back on list.
 
-Gui, Add, Edit, vNumpad4Input w377 h25, %Numpad4Text%
-Gui, Add, Edit, vNumpad6Input w377 h25, %Numpad6Text%
+; Add labels for the input fields
+Gui, Add, Text, x10 y160, Numpad4 Text:
+Gui, Add, Edit, vNumpad4Input w377 h20, %Numpad4Text%
+
+Gui, Add, Text, x10 y205, Numpad6 Text:
+Gui, Add, Edit, vNumpad6Input w377 h20, %Numpad6Text%
 
 Gui, Add, Button, gSaveChanges x9 y220 w120 h35, Save Changes
 Gui, Add, Button, gCloseGUI x268 y220 w120 h35, Close GUI
@@ -141,8 +145,8 @@ Gui, Add, Button, gCancelScript x138 y220 w120 h35, Cancel Script
 Gui, Show, w400 h265, Report Actions
 
 ; Define Numpad hotkeys (adjusted click coordinates for 5120x1440 resolution)
-^Numpad0:: 
-    FileAppend, %A_Now% - Ctrl+Numpad0 pressed.`n, %logFile%
+Numpad0:: 
+    FileAppend, %A_Now% - Numpad0 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 2320, 420  ; Reports for "Cheating"
@@ -150,8 +154,8 @@ Gui, Show, w400 h265, Report Actions
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-^Numpad1:: 
-    FileAppend, %A_Now% - Ctrl+Numpad1 pressed.`n, %logFile%
+Numpad1:: 
+    FileAppend, %A_Now% - Numpad1 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 2320, 420 ; Reports for "Cheating"
@@ -171,8 +175,8 @@ return
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-^Numpad2:: 
-    FileAppend, %A_Now% - Ctrl+Numpad2 pressed.`n, %logFile%
+Numpad2:: 
+    FileAppend, %A_Now% - Numpad2 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 2320, 480 ; Reports for "Exploiting"
@@ -180,8 +184,8 @@ return
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-^Numpad3:: 
-    FileAppend, %A_Now% - Ctrl+Numpad3 pressed.`n, %logFile%
+Numpad3:: 
+    FileAppend, %A_Now% - Numpad3 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 2320, 540 ; Reports for "Text Chat-Spam"
@@ -189,17 +193,17 @@ return
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-^Numpad4:: 
-    FileAppend, %A_Now% - Ctrl+Numpad4 pressed.`n, %logFile%
+Numpad4:: 
+    FileAppend, %A_Now% - Numpad4 pressed.`n, %logFile%
     SendInput, {Enter}
     Sleep, 300
     SendInput, %Numpad4Text%
     Sleep, 300
-    Send, {Enter}
+    Click, 2550, 890 ; Clicks "Send report"
 return
 
-^Numpad5:: 
-    FileAppend, %A_Now% - Ctrl+Numpad5 pressed.`n, %logFile%
+Numpad5:: 
+    FileAppend, %A_Now% - Numpad5 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 2320, 600 ; Reports for "Text Chat-Spam"
@@ -207,17 +211,17 @@ return
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-^Numpad6:: 
-    FileAppend, %A_Now% - Ctrl+Numpad6 pressed.`n, %logFile%
+Numpad6:: 
+    FileAppend, %A_Now% - Numpad6 pressed.`n, %logFile%
     SendInput, {Enter}
     Sleep, 300
     SendInput, %Numpad6Text%
     Sleep, 300
-    Send, {Enter}
+    Click, 2550, 890 ; Clicks "Send report"
 return
 
-^Numpad7:: 
-    FileAppend, %A_Now% - Ctrl+Numpad7 pressed.`n, %logFile%
+Numpad7:: 
+    FileAppend, %A_Now% - Numpad7 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 2320, 660 ; Reports for "Voice Chat-Offensive"
@@ -225,8 +229,8 @@ return
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-^Numpad8:: 
-    FileAppend, %A_Now% - Ctrl+Numpad8 pressed.`n, %logFile%
+Numpad8:: 
+    FileAppend, %A_Now% - Numpad8 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 2320, 722 ; Reports for "UserName-Offensive"
@@ -234,8 +238,8 @@ return
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-^Numpad9:: 
-    FileAppend, %A_Now% - Ctrl+Numpad9 pressed.`n, %logFile%
+Numpad9:: 
+    FileAppend, %A_Now% - Numpad9 pressed.`n, %logFile%
     SendInput, x
     Sleep, 300
     Click, 2320, 785 ; Reports for "ClanTag-Offensive"
@@ -243,8 +247,8 @@ return
     Click, 2550, 890 ; Clicks "Send report"
 return
 
-^NumpadAdd:: 
-    FileAppend, %A_Now% - Ctrl+Numpad+ pressed.`n, %logFile%
+NumpadAdd:: 
+    FileAppend, %A_Now% - Numpad+ pressed.`n, %logFile%
     SendInput, {Enter}
     Sleep, 300
     Click, 746, 300 ; buys back the first person on list
