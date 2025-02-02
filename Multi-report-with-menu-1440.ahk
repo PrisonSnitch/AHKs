@@ -10,7 +10,7 @@ flagFile := A_Temp "\Reportlogfile1440.txt"
 FileAppend, %A_Now% - Script started.`n, %logFile%
 
 ; Define the script version
-ScriptVersion := "2.1.3"
+ScriptVersion := "2.1.4"
 
 ; Define the correct URL where the latest version is hosted (raw GitHub link)
 VersionUrl := "https://raw.githubusercontent.com/PrisonSnitch/AHKs/refs/heads/main/Version-1440.txt"
@@ -132,8 +132,12 @@ Gui, Add, ListBox, vMyListBox w377 h155, Pressing CtrlNumpad0 will send report f
 |Pressing Ctrl+Numpad9 will send report for "ClanTag-Offensive"
 |Pressing Ctrl+Numpad+ will buy the first person back on list.
 
-Gui, Add, Edit, vNumpad4Input w377 h25, %Numpad4Text%
-Gui, Add, Edit, vNumpad6Input w377 h25, %Numpad6Text%
+; Add labels for the input fields
+Gui, Add, Text, x10 y160, Numpad4 Text:
+Gui, Add, Edit, vNumpad4Input w377 h20, %Numpad4Text%
+
+Gui, Add, Text, x10 y205, Numpad6 Text:
+Gui, Add, Edit, vNumpad6Input w377 h20, %Numpad6Text%
 
 Gui, Add, Button, gSaveChanges x9 y220 w120 h35, Save Changes
 Gui, Add, Button, gCloseGUI x268 y220 w120 h35, Close GUI
