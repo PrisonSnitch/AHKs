@@ -61,5 +61,5 @@ Return
 
 ; Exit the script with the Ctrl + Escape key
 ~^Esc::
-    ExitApp
+ExitApp
 return
